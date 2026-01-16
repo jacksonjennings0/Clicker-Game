@@ -6,6 +6,9 @@ let autoClickPower = 0;
 let clickUpgradeCost = 10;
 let autoClickerCost = 50;
 
+let prestigePoints = 0;
+let prestigeBonus = 1; // Multiplier for clicks after prestige
+
 // UPDATE UI
 function updateUI() {
 
@@ -25,17 +28,42 @@ function clickCookie() {
     let critChance = 0.2; // 20% critical chance
     let critMultiplier = 5; // Critical hits do 5x damage
 
+    let baseGain = clickPower * prestigeBonus;
+
     if (Math.random() < critChance) {
-        let critAmount = clickPower * critMultiplier;
+        let critAmount = baseGain * critMultiplier;
         score += critAmount;
         showCritFloatingText(critAmount);
     } else {
-        score += clickPower;
-        showFloatingText(clickPower);
+        score += baseGain;
+        showFloatingText(baseGain);
     }
 
     updateUI();
     saveGame();
+}
+
+// Prestige Function
+function prestige() {
+    if (score < 100000) {
+        alert("You need at least 100,000 points to prestige!");
+        return;
+    }
+
+    let gained = Math.floor(score / 100000);
+    prestigePoints += gained;
+    prestigeBonus = 1 + prestigePoints * 0.1; // Each prestige point gives 10% bonus
+
+    score = 0;
+    clickPower = 1;
+    autoClickPower = 0;
+    autoClickerCost = 50;
+    clickUpgradeCost = 10;
+
+    updateUI();
+    saveGame();
+
+    alert("You have prestiged and gained " + gained + " prestige points!");
 }
 
 function showFloatingText(amount) {
@@ -136,7 +164,9 @@ showAutoFloatingText(autoClickPower);
 // SAVE / LOAD GAME
 function saveGame() {
     localStorage.setItem("clcikerSave", JSON.stringify({
-        score,clickPower,autoClickPower,clickUpgradeCost,autoClickerCost
+        score,clickPower,autoClickPower,clickUpgradeCost,autoClickerCost,
+        prestigePoints: prestigePoints,
+        prestigeBonus: prestigeBonus,
     }));
 }
 
@@ -148,9 +178,12 @@ function loadGame() {
         autoClickPower = save.autoClickPower;
         clickUpgradeCost = save.clickUpgradeCost;
         autoClickerCost = save.autoClickerCost;
+        prestigePoints = saveData.prestigePoints || 0;
+        prestigeBonus = saveData.prestigeBonus || 1;
     }
     updateUI();
 }
 
 // LOAD ON PAGE START
+
 loadGame();
