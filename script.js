@@ -21,6 +21,8 @@ function updateUI() {
     document.getElementById("clickCost").textContent = clickUpgradeCost;
 
     document.getElementById("autoCost").textContent = autoClickerCost;
+
+    document.getElementById("prestigeInfo").innerText = "Prestige Points: " + prestigePoints + " | Bonus: x" + prestigeBonus.toFixed(1);
 }
 
 // MAIN CLICK
@@ -187,3 +189,4 @@ function loadGame() {
 // LOAD ON PAGE START
 
 loadGame();
+
