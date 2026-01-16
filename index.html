@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BIG CLICKABLE AREA -->
+    <div id="clickArea" onclick="clickCookie()">
+        <h1 id="clickText">CLICK ME</h1>
+    </div>
+
+    <div id="floatContainer"></div>
+
+    <!-- SCORE DISPLAY -->
+    <p>Score: <span id="score">0</span></p>
+
+    <!-- UPGRADES -->
+    <h2>Upgrades</h2>
+
+    <p>Click Power: <span id="clickPower">1</span></p>
+    <button onclick="buyClickUpgrade()">Upgrade Click (+1)</button>
+    <p>Cost: <span id="clickCost">10</span></p>
+
+    <p>Auto Click Power: <span id="autoClickPower">0</span></p>
+    <button onclick="buyAutoClicker()">Buy Auto Clicker (+1/sec)</button>
+    <p>Cost: <span id="autoCost">50</span></p>
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
