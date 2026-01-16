@@ -3,14 +3,14 @@
 <head>
     <title>Clicker Game</title>
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalble=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- BIG CLICKABLE AREA -->
-    <div id="clickArea" onclick="clickCookie()">
+    <div id="clickArea" onclick="clickCookie()" ontouchstart="clickCookie()" tabindex="-1">
         <h1 id="clickText">CLICK ME</h1>
     </div>
 
@@ -35,3 +35,4 @@
 </body>
 
 </html>
+
