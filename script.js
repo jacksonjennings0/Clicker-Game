@@ -169,6 +169,7 @@ function saveGame() {
         score,clickPower,autoClickPower,clickUpgradeCost,autoClickerCost,
         prestigePoints: prestigePoints,
         prestigeBonus: prestigeBonus,
+        lastPlayed: Date.now()
     }));
 }
 
@@ -182,11 +183,21 @@ function loadGame() {
         autoClickerCost = save.autoClickerCost;
         prestigePoints = saveData.prestigePoints || 0;
         prestigeBonus = saveData.prestigeBonus || 1;
+        let lastPlayed = save.lastPlayed || Date.now(); // when they last played
+        let now = Date.now(); // current time
+        let secondsAway = Math.floor((now - lastPlayed) / 1000);
+        if (secondsAway > 5 && autoClickPower > 0) { // only reward if away more than 5 seconds
+            let offlineEarnings = secondsAway * autoClickPower * prestigeBonus;
+            score += offlineEarnings;
+
+            alert("Welcome Back! You Earned " + offlineEarnings + " Points While You Were Away!");
     }
     updateUI();
+    saveGame();
 }
 
 // LOAD ON PAGE START
 
 loadGame();
+
 
