@@ -199,5 +199,3 @@ function loadGame() {
 // LOAD ON PAGE START
 
 loadGame();
-
-
