@@ -192,6 +192,7 @@ function loadGame() {
 
             alert("Welcome Back! You Earned " + offlineEarnings + " Points While You Were Away!");
     }
+     
     updateUI();
     saveGame();
 }
@@ -199,3 +200,4 @@ function loadGame() {
 // LOAD ON PAGE START
 
 loadGame();
+
