@@ -55,15 +55,12 @@ function showFloatingText(amount, type) {
     text.className = "floating-text";
     text.innerText = amount;
 
-    // SPAWN NEAR THE CLICK BUTTON
-    const button = document.getElementById("clickButton");
-    const rect = button.getBoundingClientRect();
-
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
-
-    text.style.left = x + "px";
-    text.style.top = y + "px";
+    // Spawn in middle of screen
+    text.style.position = "fixed";
+    text.style.left = "50%";
+    text.style.top = "50%";
+    text.style.transform = "translate(-50%, -50%)";
+    text.style.pointerEvents = "none";
 
     if (type === "crit") text.style.color = "red";
     if (type === "auto") text.style.color = "cyan";
@@ -282,4 +279,5 @@ function loadGame() {
 }
 
 loadGame();
+
 
