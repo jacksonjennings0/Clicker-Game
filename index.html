@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Jackson's Clicker Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Jackson's Clicker Game</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="game">
-
-    <h1>Jackson's Clicker Game</h1>
+    <h1>🔥 Jackson's Clicker Game 🔥</h1>
 
     <p id="scoreDisplay">Score: 0</p>
 
-    <!-- Main Click Button -->
     <div id="clickArea">
         <div id="clickButton" onclick="clickCookie()">CLICK</div>
     </div>
@@ -23,33 +21,25 @@
     <button onclick="buyClickUpgrade()">Upgrade Click Power (<span id="clickCost">25</span>)</button>
     <button onclick="buyAutoClicker()">Buy Auto Clicker (<span id="autoCost">50</span>)</button>
 
-    <br><br>
-
     <!-- Stats -->
     <p>Click Power: <span id="clickPowerDisplay">1</span></p>
     <p>Auto Clickers: <span id="autoCount">0</span></p>
 
-    <br>
-
     <!-- Prestige -->
     <button onclick="prestige()">Prestige</button>
-    <p id="prestigeInfo"></p>
-
-    <br>
+    <p id="prestigeInfo">Prestige: 0 | Bonus: x1 | Boss Kills: 0 | Passive/sec: 0</p>
 
     <!-- Boss -->
     <div id="bossArea" style="display:none;">
-        <h2 id="bossName">Boss Fight!</h2>
+        <h2 id="bossName">💀 Boss Fight! 💀</h2>
         <p>Boss Health: <span id="bossHealthDisplay">0</span></p>
         <p>Time Left: <span id="bossTimerDisplay">30</span>s</p>
         <button onclick="attackBoss()">Attack Boss</button>
     </div>
 
     <p>Bosses Killed: <span id="bossKillsDisplay">0</span></p>
-
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
