@@ -51,25 +51,46 @@ function buyClickUpgrade() {
 }
 
 function showFloatingText(amount, type) {
-    const text = document.createElement("div");
-    text.className = "floating-text";
-    text.innerText = amount;
+    try {
+        const text = document.createElement("div");
+        text.className = "floating-text";
+        text.innerText = amount;
 
-    // Spawn in middle of screen
-    text.style.position = "fixed";
-    text.style.left = "50%";
-    text.style.top = "50%";
-    text.style.transform = "translate(-50%, -50%)";
-    text.style.pointerEvents = "none";
+        // Spawn near the click button (or center if button not found)
+        const button = document.getElementById("clickButton");
+        let x, y;
 
-    if (type === "crit") text.style.color = "red";
-    if (type === "auto") text.style.color = "cyan";
+        if (button) {
+            const rect = button.getBoundingClientRect();
+            // Random left/right offset
+            x = rect.left + rect.width / 2 + (Math.random() * 60 - 30); 
+            y = rect.top + rect.height / 2 + (Math.random() * 20 - 10);
+        } else {
+            // fallback to center
+            x = window.innerWidth / 2 + (Math.random() * 60 - 30);
+            y = window.innerHeight / 2 + (Math.random() * 20 - 10);
+        }
 
-    document.body.appendChild(text);
+        text.style.position = "fixed";
+        text.style.left = x + "px";
+        text.style.top = y + "px";
+        text.style.pointerEvents = "none";
 
-    setTimeout(() => {
-        text.remove();
-    }, 1000);
+        // Color by type
+        if (type === "crit") text.style.color = "red";
+        else if (type === "auto") text.style.color = "cyan";
+        else text.style.color = "gold";
+
+        document.body.appendChild(text);
+
+        // Animate floating up
+        setTimeout(() => {
+            text.remove();
+        }, 1000);
+
+    } catch (err) {
+        console.error("Floating text error:", err);
+    }
 }
 
 function clickCookie() {
@@ -279,5 +300,6 @@ function loadGame() {
 }
 
 loadGame();
+
 
 
