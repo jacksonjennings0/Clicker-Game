@@ -102,6 +102,10 @@ function clickCookie() {
 // Buy Upgrades
 // =======================
 function buyClickUpgrade() {
+    // Ensure score and cost are numbers
+    score = Number(score);
+    clickCost = Number(clickCost);
+
     if (score >= clickCost) {
         score -= clickCost;
         clickPower += 1;
@@ -292,4 +296,5 @@ window.onload = () => {
     updateUI();
     setTimeout(spawnBoss, bossSpawnInterval);
 };
+
 
