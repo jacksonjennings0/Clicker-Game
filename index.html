@@ -1,39 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Clicker Game</title>
-
+    <meta charset="UTF-8">
+    <title>JACKSON'S CLICKER GAME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PREVENT MOBILE ZOOM ON TAP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- BIG CLICKABLE AREA -->
-    <div id="clickArea" onclick="clickCookie()" ontouchstart="clickCookie()" tabindex="-1">
-        <h1 id="clickText">CLICK ME</h1>
+<div id="game">
+
+    <h1>JACKSON'S CLICKER GAME</h1>
+
+    <p id="scoreDisplay">Score: 0</p>
+
+    <!-- MAIN CLICK BUTTON -->
+    <div id="clickArea">
+        <div id="clickButton" onclick="clickCookie()">CLICK</div>
     </div>
 
-    <div id="floatContainer"></div>
-
-    <!-- SCORE DISPLAY -->
-    <p>Score: <span id="score">0</span></p>
+    <!-- FLOATING TEXT CONTAINER -->
+    <div id="floatingTextContainer"></div>
+    
+    <br>
 
     <!-- UPGRADES -->
-    <h2>Upgrades</h2>
+    <button onclick="buyClickUpgrade()">Upgrade Click Power (<span id="clickCost">25</span>)</button>
 
-    <button id="prestigeBtn" onclick="prestige()">PRESTIGE!</button>
-    <p id="prestigeInfo">Prestige Points: 0</p>
+    <button onclick="buyAutoClicker()">Buy Auto Clicker (<span id="autoCost">50</span>)</button>
 
-    <p>Click Power: <span id="clickPower">1</span></p>
-    <button onclick="buyClickUpgrade()">Upgrade Click (+1)</button>
-    <p>Cost: <span id="clickCost">10</span></p>
+    <br><br>
 
-    <p>Auto Click Power: <span id="autoClickPower">0</span></p>
-    <button onclick="buyAutoClicker()">Buy Auto Clicker (+1/sec)</button>
-    <p>Cost: <span id="autoCost">50</span></p>
+    <!-- STATS -->
+    <p>Click Power: <span id="clickPowerDisplay">1</span></p>
+    <p>Auto Clickers: <span id="autoCount">0</span></p>
 
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
+    <br>
+
+    <!-- PRESTIGE -->
+    <button onclick="prestige()">Prestige</button>
+    <p id="prestigeInfo"></p>
+
+    <br>
+
+    <!-- BOSS -->
+    <div id="bossArea" style="display:none;">
+        <h2 id="bossName">!BOSS FIGHT!</h2>
+        <p>BOSS HEALTH: <span id="bossHealthDisplay">0</span></p>
+        <p>TIME LEFT: <span id="bossTimerDisplay">30</span>s</p>
+        <button onclick="attackBoss()">ATTACK BOSS!</button>
+    </div>
+
+    <p>BOSSES KILLED: <span id="bossKills">0</span></p>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
