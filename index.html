@@ -2,66 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CLICK N RELAX CLICKER GAME</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- PREVENT MOBILE ZOOM ON TAP -->
+    <title>Jackson's Clicker Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div id="game">
 
-    <h1>CLICK N RELAX CLICKER GAME</h1>
+    <h1>🔥 Jackson's Clicker Game 🔥</h1>
 
     <p id="scoreDisplay">Score: 0</p>
 
-    <!-- MAIN CLICK BUTTON -->
+    <!-- Main Click Button -->
     <div id="clickArea">
         <div id="clickButton" onclick="clickCookie()">CLICK</div>
     </div>
 
-    <!-- FLOATING TEXT CONTAINER -->
-    <div id="floatingTextContainer"></div>
-    
-    <br>
-
-    <!-- UPGRADES -->
+    <!-- Upgrades -->
     <button onclick="buyClickUpgrade()">Upgrade Click Power (<span id="clickCost">25</span>)</button>
-
     <button onclick="buyAutoClicker()">Buy Auto Clicker (<span id="autoCost">50</span>)</button>
 
     <br><br>
 
-    <!-- STATS -->
+    <!-- Stats -->
     <p>Click Power: <span id="clickPowerDisplay">1</span></p>
     <p>Auto Clickers: <span id="autoCount">0</span></p>
 
     <br>
 
-    <!-- PRESTIGE -->
+    <!-- Prestige -->
     <button onclick="prestige()">Prestige</button>
     <p id="prestigeInfo"></p>
 
     <br>
 
-    <!-- BOSS -->
+    <!-- Boss -->
     <div id="bossArea" style="display:none;">
-        <h2 id="bossName">!BOSS FIGHT!</h2>
-        <p>BOSS HEALTH: <span id="bossHealthDisplay">0</span></p>
-        <p>TIME LEFT: <span id="bossTimerDisplay">30</span>s</p>
-        <button onclick="attackBoss()">ATTACK BOSS!</button>
+        <h2 id="bossName">💀 Boss Fight! 💀</h2>
+        <p>Boss Health: <span id="bossHealthDisplay">0</span></p>
+        <p>Time Left: <span id="bossTimerDisplay">30</span>s</p>
+        <button onclick="attackBoss()">Attack Boss</button>
     </div>
 
-    <p>BOSSES KILLED: <span id="bossKills">0</span></p>
+    <p>Bosses Killed: <span id="bossKillsDisplay">0</span></p>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
-
