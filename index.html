@@ -1,42 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Clicker Game</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BIG CLICKABLE AREA -->
+    <h1>🔥 Clicker Game 🔥</h1>
+
     <div id="clickArea" onclick="clickCookie()" ontouchstart="clickCookie()" tabindex="-1">
-        <h1 id="clickText">CLICK ME</h1>
+        <h2>CLICK</h2>
     </div>
 
-    <div id="floatContainer"></div>
+    <h2>Score: <span id="score">0</span></h2>
 
-    <!-- SCORE DISPLAY -->
-    <p>Score: <span id="score">0</span></p>
+    <button onclick="buyAutoClicker()">Buy Auto Clicker (<span id="autoCost">50</span>)</button>
+    <button onclick="buyClickUpgrade()">Upgrade Click Power (<span id="clickCost">25</span>)</button>
 
-    <!-- UPGRADES -->
-    <h2>Upgrades</h2>
+    <br><br>
 
-    <button id="prestigeBtn" onclick="prestige()">PRESTIGE!</button>
-    <p id="prestigeInfo">Prestige Points: 0</p>
+    <button id="prestigeBtn" onclick="prestige()">PRESTIGE</button>
+    <p id="prestigeInfo">Prestige Points: 0 | Bonus: x1.0</p>
 
-    <p>Click Power: <span id="clickPower">1</span></p>
-    <button onclick="buyClickUpgrade()">Upgrade Click (+1)</button>
-    <p>Cost: <span id="clickCost">10</span></p>
+    <div id="floatingContainer"></div>
 
-    <p>Auto Click Power: <span id="autoClickPower">0</span></p>
-    <button onclick="buyAutoClicker()">Buy Auto Clicker (+1/sec)</button>
-    <p>Cost: <span id="autoCost">50</span></p>
-
-    <!-- SCRIPT -->
     <script src="script.js"></script>
+
 </body>
-
 </html>
-
-
