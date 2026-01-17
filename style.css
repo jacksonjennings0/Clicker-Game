@@ -1,67 +1,60 @@
-* {
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-
 body {
-    text-align: center;
     font-family: Arial, sans-serif;
-    background: #111;
+    text-align: center;
+    background-color: #222;
     color: white;
     touch-action: manipulation;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: transparent;
+    outline: none;
+}
+
 #clickArea {
-    width: 250px;
-    height: 250px;
-    background: gold;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #ff9800, #ff5722);
     border-radius: 50%;
-    margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-#clickArea:active {
-    transform: scale(0.95);
-}
-
-button {
-    padding: 12px 25px;
-    font-size: 18px;
-    margin: 10px;
     cursor: pointer;
+    user-select: none;
+    margin: 40px auto;
+    box-shadow: 0 0 30px rgba(255, 120, 0, 0.6);
+    transition: transform 0.1s ease;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    outline: none;
 }
 
-#floatingContainer {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    top: 0;
-    left: 0;
+#clickArea:focus,
+#clickArea:active { 
+    transform: scale(0.95);
+    outline: none;
+    box-shadow: none;
 }
 
-.floatingText {
+#clickText {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#floatContainer {
+    position: relative;
+    height: 0;
+}
+
+.floatText {
     position: absolute;
     font-size: 24px;
-    animation: floatUp 1s ease-out forwards;
-}
-
-.manual {
-    color: gold;
-}
-
-.auto {
-    color: cyan;
-}
-
-.crit {
-    color: red;
     font-weight: bold;
+    color: gold;
+    animation: floatUp 1s ease-out forwards;
+    pointer-events: none;
 }
 
 @keyframes floatUp {
@@ -73,4 +66,39 @@ button {
         opacity: 0;
         transform: translateY(-80px);
     }
+}
+
+.autoFloatText {
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    color: #00e5ff;
+    animation: floatUp 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+}
+
+.critFloatText {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff3333;
+    text-shadow: 0 0 15px rgba(255, 50, 50, 0.9);
+    animation: floatUp 1s ease-out forwards;
+    pointer-events: none;
+}
+
+#clickArea:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
