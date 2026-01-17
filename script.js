@@ -106,6 +106,7 @@ function buyClickUpgrade() {
         score -= clickCost;
         clickPower += 1;
         clickCost = Math.floor(clickCost * 1.5);
+
         document.getElementById("clickCost").innerText = clickCost;
         updateUI();
         saveGame();
@@ -119,6 +120,7 @@ function buyAutoClicker() {
         score -= autoClickCost;
         autoClickPower += 1;
         autoClickCost = Math.floor(autoClickCost * 1.5);
+
         document.getElementById("autoCost").innerText = autoClickCost;
         updateUI();
         saveGame();
@@ -290,3 +292,4 @@ window.onload = () => {
     updateUI();
     setTimeout(spawnBoss, bossSpawnInterval);
 };
+
