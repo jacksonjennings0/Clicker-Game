@@ -51,14 +51,24 @@ function buyClickUpgrade() {
 }
 
 function showFloatingText(amount, type) {
-    let text = document.createElement("div");
-    text.className = "floatingText " + type;
-    text.innerText = "+" + Math.floor(amount);
+    const text = document.createElement("div");
+    text.className = "floating-text";
+    text.innerText = amount;
+
+    // SPAWN NEAR THE CLICK BUTTON
+    const button = document.getElementById("clickButton");
+    const rect = button.getBoundingClientRect();
+
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
 
     text.style.left = x + "px";
     text.style.top = y + "px";
 
-    document.getElementById("floatingContainer").appendChild(text);
+    if (type === "crit") text.style.color = "red";
+    if (type === "auto") text.style.color = "cyan";
+
+    document.body.appendChild(text);
 
     setTimeout(() => {
         text.remove();
@@ -272,3 +282,4 @@ function loadGame() {
 }
 
 loadGame();
+
