@@ -1,139 +1,51 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
-}
-
 body {
     background: radial-gradient(circle at top, #111, #000);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     min-height: 100vh;
+    user-select: none;
 }
 
-/* Game container */
 #game {
     max-width: 420px;
     margin: auto;
     padding: 20px;
 }
 
-/* Title */
-h1 {
-    margin-bottom: 15px;
-    font-size: 26px;
-    color: gold;
-    text-shadow: 0 0 10px gold;
-}
+h1 { color: gold; text-shadow: 0 0 10px gold; }
 
-/* Score */
-#scoreDisplay {
-    font-size: 22px;
-    margin-bottom: 15px;
-}
+#scoreDisplay { font-size: 22px; margin-bottom: 15px; }
 
-/* Click Area */
-#clickArea {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
+#clickArea { display: flex; justify-content: center; margin: 20px 0; }
 
-/* Main Click Button */
 #clickButton {
-    width: 180px;
-    height: 180px;
+    width: 180px; height: 180px;
     background: radial-gradient(circle, #ffae00, #ff5e00);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 25px orange;
-    transition: transform 0.08s ease;
-    touch-action: manipulation;
+    border-radius: 50%; display: flex;
+    justify-content: center; align-items: center;
+    font-size: 26px; font-weight: bold;
+    cursor: pointer; box-shadow: 0 0 25px orange;
+    transition: transform 0.08s ease; touch-action: manipulation;
 }
 
-/* Click animation */
-#clickButton:active {
-    transform: scale(0.92);
-}
+#clickButton:active { transform: scale(0.92); }
+#clickButton { -webkit-tap-highlight-color: transparent; outline: none; }
 
-/* Remove blue highlight on mobile */
-#clickButton {
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-
-/* Buttons */
 button {
-    padding: 12px 18px;
-    margin: 8px;
-    border: none;
-    border-radius: 10px;
+    padding: 12px 18px; margin: 8px;
+    border: none; border-radius: 10px;
     background: linear-gradient(45deg, #444, #222);
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    box-shadow: 0 0 8px rgba(255,255,255,0.2);
+    color: white; font-size: 15px;
+    cursor: pointer; box-shadow: 0 0 8px rgba(255,255,255,0.2);
 }
 
-button:hover {
-    background: linear-gradient(45deg, #666, #333);
-}
+button:hover { background: linear-gradient(45deg, #666, #333); }
 
-/* Auto Clicker button */
-button.auto {
-    background: linear-gradient(45deg, #00f2ff, #005eff);
-    box-shadow: 0 0 15px #00f2ff;
-}
+.floating-text { position: absolute; font-size: 20px; font-weight: bold; pointer-events: none; text-shadow: 0 0 10px gold; }
 
-/* Floating text */
-.floating-text {
-    position: absolute;
-    font-size: 20px;
-    font-weight: bold;
-    pointer-events: none;
-    text-shadow: 0 0 10px gold;
-}
+#bossArea { margin-top: 20px; padding: 15px; border-radius: 15px; background: linear-gradient(45deg, #400, #800); box-shadow: 0 0 20px red; }
 
-/* Crit text */
-.crit {
-    color: red;
-    font-size: 26px;
-    text-shadow: 0 0 12px red;
-}
+#bossArea h2 { color: crimson; text-shadow: 0 0 10px red; }
 
-/* Boss area */
-#bossArea {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    background: linear-gradient(45deg, #400, #800);
-    box-shadow: 0 0 20px red;
-}
-
-#bossArea h2 {
-    color: crimson;
-    text-shadow: 0 0 10px red;
-}
-
-/* Prestige info */
-#prestigeInfo {
-    margin-top: 10px;
-    color: gold;
-}
-
-/* Mobile fix */
-@media (max-width: 480px) {
-    #clickButton {
-        width: 150px;
-        height: 150px;
-        font-size: 22px;
-    }
-}
+#prestigeInfo { margin-top: 10px; color: gold; }
