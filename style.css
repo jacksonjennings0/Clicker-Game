@@ -99,7 +99,6 @@ button.auto {
     font-size: 20px;
     font-weight: bold;
     pointer-events: none;
-    animation: floatUp 1s ease-out forwards;
     text-shadow: 0 0 10px gold;
 }
 
@@ -108,18 +107,6 @@ button.auto {
     color: red;
     font-size: 26px;
     text-shadow: 0 0 12px red;
-}
-
-/* Floating animation */
-@keyframes floatUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-60px);
-    }
 }
 
 /* Boss area */
