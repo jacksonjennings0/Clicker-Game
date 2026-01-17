@@ -56,20 +56,9 @@ function showFloatingText(amount, type) {
         text.className = "floating-text";
         text.innerText = amount;
 
-        // Spawn near the click button (or center if button not found)
-        const button = document.getElementById("clickButton");
-        let x, y;
-
-        if (button) {
-            const rect = button.getBoundingClientRect();
-            // Random left/right offset
-            x = rect.left + rect.width / 2 + (Math.random() * 60 - 30); 
-            y = rect.top + rect.height / 2 + (Math.random() * 20 - 10);
-        } else {
-            // fallback to center
-            x = window.innerWidth / 2 + (Math.random() * 60 - 30);
-            y = window.innerHeight / 2 + (Math.random() * 20 - 10);
-        }
+        // Random starting position anywhere inside the viewport
+        const x = Math.random() * (window.innerWidth - 50); // leave some margin
+        const y = Math.random() * (window.innerHeight - 100); // leave some top margin
 
         text.style.position = "fixed";
         text.style.left = x + "px";
@@ -83,8 +72,17 @@ function showFloatingText(amount, type) {
 
         document.body.appendChild(text);
 
-        // Animate floating up
+        // Animate drifting left/right while floating up
+        let drift = (Math.random() * 60) - 30; // random left/right drift
+        let start = 0;
+        const floatAnim = setInterval(() => {
+            start += 2; // move up
+            text.style.transform = `translate(${drift}px, -${start}px)`;
+        }, 16); // ~60fps
+
+        // Remove after 1 second
         setTimeout(() => {
+            clearInterval(floatAnim);
             text.remove();
         }, 1000);
 
@@ -300,6 +298,7 @@ function loadGame() {
 }
 
 loadGame();
+
 
 
 
