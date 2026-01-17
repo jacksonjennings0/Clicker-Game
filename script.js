@@ -28,7 +28,7 @@ let prestigePoints = 0; // Prestige points earned
 let prestigeBonus = 1; // Score bonus from prestige
 
 function updateUI() {
-    document.getElementById("score").innerText = Math.floor(score);
+    document.getElementById("scoreDisplay").innerText = "Score: " + Math.floor(score);
 
     document.getElementById("autoCost").innerText = autoClickCost;
 
@@ -300,6 +300,7 @@ function loadGame() {
 }
 
 loadGame();
+
 
 
 
