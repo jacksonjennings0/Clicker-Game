@@ -287,6 +287,15 @@ function loadGame() {
         prestigeBonus = save.prestigeBonus;
         bossKills = save.bossKills;
         bossPassiveScore = save.bossPassiveScore;
+
+        score = Number(save.score);
+        clickPower = Number(save.clickPower);
+        autoClickPower = Number(save.autoClickPower);
+        clickCost = Number(save.clickCost);
+        autoClickCost = Number(save.autoClickCost);
+        prestigePoints = Number(save.prestigePoints);
+        bossKills = Number(save.bossKills);
+        bossPassiveScore = Number(save.bossPassiveScore);
         updateUI();
     }
 }
@@ -296,5 +305,6 @@ window.onload = () => {
     updateUI();
     setTimeout(spawnBoss, bossSpawnInterval);
 };
+
 
 
